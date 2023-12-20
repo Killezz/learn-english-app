@@ -2,15 +2,20 @@
   "name": "learn-english-app-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "build:frontend": "cd frontend && npm run build",
-    "dev:frontend": "cd frontend && npm run dev",
-    "dev:backend": "nodemon backend/server.js"
+    "start": "node packages/backend/server.js",
+    "build:frontend": "cd packages/frontend && npm run build",
+    "dev:start": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd packages/frontend && npm run dev",
+    "dev:backend": "nodemon packages/backend/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
