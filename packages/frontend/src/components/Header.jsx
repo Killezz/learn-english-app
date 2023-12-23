@@ -3,30 +3,18 @@ import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import { setSettingsValue, getSettingsValue } from "./database";
 
 const Header = () => {
   // Creates Header to with settings popup. It also provides theme setting for body.
   const location = useLocation();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [theme, setTheme] = useState(localStorage.getItem("theme"));
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
   const handleThemeChange = (e) => {
     const currentTheme = e.target.checked ? "light" : "dark";
     setTheme(currentTheme);
     localStorage.setItem("theme", currentTheme);
-    setSettingsValue("theme", currentTheme);
   };
-
-  useEffect(() => {
-    // getSettingsValue("theme").then((value) => {
-    //   if (value) {
-    //     setTheme(value);
-    //   } else {
-    //     setTheme("dark");
-    //   }
-    // });
-  }, []);
 
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
@@ -38,7 +26,7 @@ const Header = () => {
         <nav>
           {/* If location.pathname is one of the below adds active className so active page gets highlighted. */}
           <a href="/" className={location.pathname === "/" ? "active" : ""}>
-            Learn English!
+            Learn English
           </a>
           <a
             href="/dashboard"
