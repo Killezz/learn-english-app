@@ -138,76 +138,82 @@ const EditTranslationPairs = () => {
 
   return (
     <>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>English</th>
-            <th>Finnish</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {translationPairs.map((pair, index) => (
-            <tr key={pair.id}>
-              <td>{index + 1}</td>
+      <div className="edit-translations">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>English</th>
+              <th>Finnish</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {translationPairs.map((pair, index) => (
+              <tr key={pair.id}>
+                <td>{index + 1}</td>
+                <td>
+                  <input
+                    defaultValue={pair.english}
+                    onBlur={(e) =>
+                      handleValueChange(pair.id, e, pair.english, "english")
+                    }
+                    type="text"
+                    className="word-input"
+                  />
+                </td>
+                <td>
+                  <input
+                    defaultValue={pair.finnish}
+                    onBlur={(e) =>
+                      handleValueChange(pair.id, e, pair.finnish, "finnish")
+                    }
+                    type="text"
+                    className="word-input"
+                  />
+                </td>
+                <td className="delete-field">
+                  <button
+                    className={"pair-action-btn"}
+                    onClick={() => deletePair(pair.id)}
+                  >
+                    <FontAwesomeIcon icon={faTrashCan} />
+                  </button>
+                </td>
+              </tr>
+            ))}
+            <tr>
+              <td>-</td>
               <td>
                 <input
-                  defaultValue={pair.english}
-                  onBlur={(e) =>
-                    handleValueChange(pair.id, e, pair.english, "english")
+                  onChange={(e) =>
+                    setNewPairEnglishValue(e.target.value.trim())
                   }
                   type="text"
-                  className="word-input"
+                  className="new-word-input"
                 />
               </td>
               <td>
                 <input
-                  defaultValue={pair.finnish}
-                  onBlur={(e) =>
-                    handleValueChange(pair.id, e, pair.finnish, "finnish")
+                  onChange={(e) =>
+                    setNewPairFinnishValue(e.target.value.trim())
                   }
                   type="text"
-                  className="word-input"
+                  className="new-word-input"
                 />
               </td>
-              <td className="delete-field">
+              <td className="add-new">
                 <button
                   className={"pair-action-btn"}
-                  onClick={() => deletePair(pair.id)}
+                  onClick={() => addNewTranslationPair()}
                 >
-                  <FontAwesomeIcon icon={faTrashCan} />
+                  <FontAwesomeIcon icon={faPlusCircle} />
                 </button>
               </td>
             </tr>
-          ))}
-          <tr>
-            <td>-</td>
-            <td>
-              <input
-                onChange={(e) => setNewPairEnglishValue(e.target.value.trim())}
-                type="text"
-                className="new-word-input"
-              />
-            </td>
-            <td>
-              <input
-                onChange={(e) => setNewPairFinnishValue(e.target.value.trim())}
-                type="text"
-                className="new-word-input"
-              />
-            </td>
-            <td className="add-new">
-              <button
-                className={"pair-action-btn"}
-                onClick={() => addNewTranslationPair()}
-              >
-                <FontAwesomeIcon icon={faPlusCircle} />
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };

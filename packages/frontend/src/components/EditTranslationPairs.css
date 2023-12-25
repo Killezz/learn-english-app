@@ -1,55 +1,117 @@
-table {
+.edit-translations table {
   text-align: left;
   font-size: 18px;
   margin: 20px;
 }
 
-table td:first-child {
+.edit-translations table td:first-child {
   text-align: center;
 }
 
-table thead tr {
+.edit-translations table thead tr {
   font-size: 20px;
   background-color: #009879;
   color: #ffffff;
 }
 
-table th,
-table td {
+.edit-translations table th,
+.edit-translations table td {
   padding: 15px;
 }
 
-table tbody tr:nth-of-type(odd) {
+.edit-translations table tbody tr:nth-of-type(odd) {
   color: black;
   background-color: #c4c4c4;
 }
 
-table tbody tr:nth-of-type(even) {
+.edit-translations table tbody tr:nth-of-type(even) {
   color: white;
   background-color: #4e4e4e;
 }
 
-table tbody .word-input,
-table tbody .new-word-input {
+.edit-translations table tbody .word-input,
+.edit-translations table tbody .new-word-input {
   font-size: 20px;
   padding: 10px;
 }
 
-.pair-action-btn {
+.edit-translations .pair-action-btn {
   color: rgb(28, 28, 28);
   background-color: rgba(255, 255, 255, 0);
   padding: 0;
   border: none;
-  font-size: 30px;
+  font-size: 25px;
   display: block;
   margin: 0 auto;
 }
 
-table tbody td.delete-field {
+.edit-translations table tbody td.delete-field {
   background-color: rgb(255, 149, 149);
 }
 
-table tbody td.add-new {
+.edit-translations table tbody td.add-new {
   color: black;
   background-color: #9dffaa;
+}
+
+@media (max-width: 800px) {
+  .edit-translations table {
+    font-size: 14px;
+    margin: 10px;
+  }
+
+  .edit-translations table th,
+  .edit-translations table td {
+    padding: 10px;
+  }
+
+  .edit-translations table tbody .word-input,
+  .edit-translations table tbody .new-word-input {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .edit-translations .pair-action-btn {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .edit-translations table {
+    font-size: 12px;
+    margin: 5px;
+  }
+
+  .edit-translations table th,
+  .edit-translations table td {
+    padding: 8px;
+  }
+
+  .edit-translations table tbody .word-input,
+  .edit-translations table tbody .new-word-input {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .edit-translations .pair-action-btn {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .edit-translations table {
+    font-size: 12px;
+    margin: 5px;
+  }
+
+  .edit-translations table th,
+  .edit-translations table td {
+    padding: 8px;
+  }
+
+  .edit-translations table tbody .word-input,
+  .edit-translations table tbody .new-word-input {
+    font-size: 12px;
+    padding: 2px;
+  }
 }

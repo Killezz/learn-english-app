@@ -108,3 +108,12 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+@media (max-width: 600px) {
+  .open-settings-icon {
+    font-size: 15px;
+  }
+  nav a {
+    font-size: 14px;
+  }
+}

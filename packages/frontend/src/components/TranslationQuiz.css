@@ -1,41 +1,41 @@
-table {
+.translations-quiz table {
   text-align: left;
   font-size: 18px;
   margin: 20px;
 }
 
-table thead tr {
+.translations-quiz table thead tr {
   font-size: 20px;
   background-color: #009879;
   color: #ffffff;
 }
 
-table th,
-table td {
+.translations-quiz table th,
+.translations-quiz table td {
   padding: 15px;
 }
 
-table tbody tr:nth-of-type(odd) {
+.translations-quiz table tbody tr:nth-of-type(odd) {
   color: black;
   background-color: #c4c4c4;
 }
 
-table tbody tr:nth-of-type(even) {
+.translations-quiz table tbody tr:nth-of-type(even) {
   color: white;
   background-color: #4e4e4e;
 }
 
-table tbody .answer-input {
+.translations-quiz table tbody .answer-input {
   font-size: 20px;
   padding: 10px;
 }
 
-table tbody .wrong-answer {
+.translations-quiz table tbody .wrong-answer {
   color: black;
   background-color: rgb(255, 149, 149);
 }
 
-.try-again-btn {
+.translations-quiz .try-again-btn {
   border-radius: 8px;
   border: black solid 1.5px;
   padding: 0.6em 1.2em;
@@ -44,4 +44,46 @@ table tbody .wrong-answer {
   font-family: inherit;
   cursor: pointer;
   background-color: rgb(0, 255, 225);
+}
+
+@media (max-width: 700px) {
+  .translations-quiz table {
+    font-size: 14px;
+    margin: 10px;
+  }
+
+  .translations-quiz table th,
+  .translations-quiz table td {
+    padding: 10px;
+  }
+
+  .translations-quiz table tbody .answer-input {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .translations-quiz .pair-action-btn {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .translations-quiz table {
+    font-size: 12px;
+    margin: 5px;
+  }
+
+  .translations-quiz table th,
+  .translations-quiz table td {
+    padding: 8px;
+  }
+
+  .translations-quiz table tbody .answer-input {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .translations-quiz .pair-action-btn {
+    font-size: 18px;
+  }
 }
