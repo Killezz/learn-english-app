@@ -4,6 +4,10 @@ table {
   margin: 20px;
 }
 
+table td:first-child {
+  text-align: center;
+}
+
 table thead tr {
   font-size: 20px;
   background-color: #009879;
@@ -25,23 +29,27 @@ table tbody tr:nth-of-type(even) {
   background-color: #4e4e4e;
 }
 
-table tbody .answer-input {
+table tbody .word-input,
+table tbody .new-word-input {
   font-size: 20px;
   padding: 10px;
 }
 
-table tbody .wrong-answer {
-  color: black;
+.pair-action-btn {
+  color: rgb(28, 28, 28);
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0;
+  border: none;
+  font-size: 30px;
+  display: block;
+  margin: 0 auto;
+}
+
+table tbody td.delete-field {
   background-color: rgb(255, 149, 149);
 }
 
-.try-again-btn {
-  border-radius: 8px;
-  border: black solid 1.5px;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  background-color: rgb(0, 255, 225);
+table tbody td.add-new {
+  color: black;
+  background-color: #9dffaa;
 }
