@@ -7,6 +7,7 @@ const LearnEnglish = () => {
   );
 
   const handleToggleLanguage = () => {
+    // Changes answerInEnglish value and saves it to browsers local storage so it will be the same on page refresh.
     const newValue = !answerInEnglish;
     setAnswerInEnglish(newValue);
     localStorage.setItem("answerInEnglish", newValue.toString());

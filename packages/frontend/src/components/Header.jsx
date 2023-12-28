@@ -5,7 +5,7 @@ import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
 const Header = () => {
-  // Creates Header to with settings popup. It also provides theme setting for body.
+  // Creates Header with settings popup. It also provides theme setting for body.
   const location = useLocation();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");

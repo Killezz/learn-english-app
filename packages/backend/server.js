@@ -58,5 +58,5 @@ const gracefulShutdown = () => {
   }
 };
 
-process.on("SIGTERM", gracefulShutdown); // Some other app requirest shutdown.
+process.on("SIGTERM", gracefulShutdown);
 process.on("SIGINT", gracefulShutdown); // ctrl-c

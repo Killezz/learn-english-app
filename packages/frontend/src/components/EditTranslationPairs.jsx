@@ -5,11 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const EditTranslationPairs = () => {
+  // Creates table from database translation pairs. Allows editing finnish and english words. Also deleting and adding new pairs.
   const [translationPairs, setTranslationPairs] = useState([]);
   const [newPairEnglishValue, setNewPairEnglishValue] = useState();
   const [newPairFinnishValue, setNewPairFinnishValue] = useState();
 
   const handleValueChange = (pairId, e, oldValue, propertyName) => {
+    // When input value changes it compares it to old and if it changed it calls changePropertyValue function to update this value in database.
     const newValue = e.target.value.trim();
     if (oldValue && oldValue != newValue) {
       changePropertyValue(pairId, propertyName, newValue);
@@ -17,6 +19,7 @@ const EditTranslationPairs = () => {
   };
 
   const addNewTranslationPair = () => {
+    // Makes POST request to database with english and finnish words. When request was successful it reloads translations.
     const newTranslationPairData = {
       english: newPairEnglishValue,
       finnish: newPairFinnishValue,
@@ -160,6 +163,7 @@ const EditTranslationPairs = () => {
                     }
                     type="text"
                     className="word-input"
+                    aria-label="edit english translation input"
                   />
                 </td>
                 <td>
@@ -170,12 +174,14 @@ const EditTranslationPairs = () => {
                     }
                     type="text"
                     className="word-input"
+                    aria-label="edit finnish translation input"
                   />
                 </td>
                 <td className="delete-field">
                   <button
                     className={"pair-action-btn"}
                     onClick={() => deletePair(pair.id)}
+                    aria-label="delete translation button"
                   >
                     <FontAwesomeIcon icon={faTrashCan} />
                   </button>
@@ -191,6 +197,7 @@ const EditTranslationPairs = () => {
                   }
                   type="text"
                   className="new-word-input"
+                  aria-label="new english translation input"
                 />
               </td>
               <td>
@@ -200,12 +207,14 @@ const EditTranslationPairs = () => {
                   }
                   type="text"
                   className="new-word-input"
+                  aria-label="new finnish translation input"
                 />
               </td>
               <td className="add-new">
                 <button
                   className={"pair-action-btn"}
                   onClick={() => addNewTranslationPair()}
+                  aria-label="add new translation button"
                 >
                   <FontAwesomeIcon icon={faPlusCircle} />
                 </button>

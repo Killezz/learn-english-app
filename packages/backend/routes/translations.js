@@ -4,6 +4,7 @@ const Validator = require("jsonschema").Validator;
 const validator = new Validator();
 
 const translationSchema = {
+  // Validation when adding new translation pair to database. Both english and finnish are required. Max lenght for string is 30 characters.
   type: "object",
   properties: {
     english: { type: "string", minLength: 1, maxLength: 30 },
@@ -13,6 +14,7 @@ const translationSchema = {
 };
 
 const translationEditSchema = {
+  // Validation when editing translation pairs. English or finnish is required when making request to API.
   type: "object",
   properties: {
     english: { type: "string", minLength: 1, maxLength: 30 },

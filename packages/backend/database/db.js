@@ -43,6 +43,7 @@ const connectionFunctions = {
     });
   },
   save: async (translation) => {
+    // Inserts new translation pair to database.
     return new Promise((resolve, reject) => {
       connectionPool.query(
         "INSERT INTO translations (english, finnish) VALUES (?, ?)",
@@ -58,6 +59,7 @@ const connectionFunctions = {
     });
   },
   findAll: async () => {
+    // Returns all translation pairs from database.
     return new Promise((resolve, reject) => {
       connectionPool.query(
         "SELECT * FROM translations;",
@@ -73,6 +75,7 @@ const connectionFunctions = {
     });
   },
   editById: async (id, newValues) => {
+    // Edits translation pair by id.
     return new Promise((resolve, reject) => {
       const validation = validator.validate(id, idSchema);
       if (validation.errors.length > 0) {
@@ -87,8 +90,10 @@ const connectionFunctions = {
             if (err) {
               reject(err);
             } else if (result.affectedRows > 0) {
+              // If affectedRows > 0  == something was changed. Returns message that id value was edited successfully.
               resolve({ message: `translation pair edited by id ${id}` });
             } else {
+              // Id was not found and nothing was changed.
               reject({
                 message: `could not edit translation pair by id ${id}`,
               });
@@ -99,6 +104,7 @@ const connectionFunctions = {
     });
   },
   deleteById: async (id) => {
+    // Deletes translation pair by id.
     return new Promise((resolve, reject) => {
       const validation = validator.validate(id, idSchema);
       if (validation.errors.length > 0) {
@@ -112,8 +118,10 @@ const connectionFunctions = {
             if (err) {
               reject(err);
             } else if (result.affectedRows > 0) {
+              // Pair deleted successfully.
               resolve({ message: `translation pair deleted by id ${id}` });
             } else {
+              // Id was not found so nothing was deleted.
               reject({
                 message: `could not delete translation pair by id ${id}`,
               });

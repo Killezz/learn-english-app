@@ -3,24 +3,28 @@ import { useEffect } from "react";
 import "../components/TranslationQuiz.css";
 
 const TranslationQuiz = ({ answerInEnglish }) => {
+  // Creates table from database translation pairs. If answerInEnglish == true then toggles between finnish and english inputs.
   const [translationPairs, setTranslationPairs] = useState([]);
   const [checkAnswers, setCheckAnswers] = useState(false);
   const [score, setScore] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState([]);
 
   const handleAnswerChange = (index, event) => {
+    // Handles answer change and sets current answer to pair.answer value.
     const newPairs = [...translationPairs];
     newPairs[index].answer = event.target.value.trim();
     setTranslationPairs(newPairs);
   };
 
   const handleTryAgain = () => {
+    // Try again button click sets score to 0 and clears wrongAnswers table.
     setScore(0);
     setWrongAnswers([]);
     setCheckAnswers(false);
   };
 
   const checkCorrectAnswers = () => {
+    // Checks corrent answers and if answer is not correct it pushes it to wrongAnswers and those are shown to user. Also calculates points and sets it to score.
     setCheckAnswers(true);
     let score = 0;
     let wrongAnswers = [];
@@ -49,6 +53,7 @@ const TranslationQuiz = ({ answerInEnglish }) => {
 
   useEffect(() => {
     if (!checkAnswers) {
+      // Loads all translations from api and shuffles list and returns first 15 or if not that many available returns all pairs.
       fetch("http://localhost/api/translations")
         .then((response) => response.json())
         .then((pairs) => {
@@ -67,6 +72,7 @@ const TranslationQuiz = ({ answerInEnglish }) => {
 
   useEffect(() => {
     if (!checkAnswers) {
+      // When answerInEnglish changes it clears all answer-input className fields.
       const inputFields = document.querySelectorAll(".answer-input");
       if (inputFields) {
         inputFields.forEach((inputField) => {
@@ -100,6 +106,7 @@ const TranslationQuiz = ({ answerInEnglish }) => {
                           onChange={(e) => handleAnswerChange(index, e)}
                           type="text"
                           className="answer-input"
+                          aria-label="finnish translation input"
                         />
                       </td>
                     </tr>
@@ -128,6 +135,7 @@ const TranslationQuiz = ({ answerInEnglish }) => {
                           onChange={(e) => handleAnswerChange(index, e)}
                           type="text"
                           className="answer-input"
+                          aria-label="english translation input"
                         />
                       </td>
                     </tr>
