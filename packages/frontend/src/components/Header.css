@@ -29,7 +29,7 @@ nav a:hover {
 }
 
 nav a.active {
-  background-color: #41f294;
+  background-color: #f2b141;
   color: rgb(0, 0, 0);
 }
 
@@ -115,5 +115,8 @@ input:checked + .slider:before {
   }
   nav a {
     font-size: 14px;
+  }
+  header {
+    margin: 0px !important;
   }
 }

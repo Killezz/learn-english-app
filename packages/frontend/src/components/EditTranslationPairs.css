@@ -10,8 +10,8 @@
 
 .edit-translations table thead tr {
   font-size: 20px;
-  background-color: #009879;
-  color: #ffffff;
+  background-color: #916a25;
+  color: white;
 }
 
 .edit-translations table th,
@@ -20,19 +20,21 @@
 }
 
 .edit-translations table tbody tr:nth-of-type(odd) {
-  color: black;
-  background-color: #c4c4c4;
+  color: var(--table-text-odd);
+  background-color: var(--table-bg-odd);
 }
 
 .edit-translations table tbody tr:nth-of-type(even) {
-  color: white;
-  background-color: #4e4e4e;
+  color: var(--table-text-even);
+  background-color: var(--table-bg-even);
 }
 
 .edit-translations table tbody .word-input,
 .edit-translations table tbody .new-word-input {
   font-size: 20px;
   padding: 10px;
+  color: var(--table-input-color);
+  background-color: var(--table-input-bg);
 }
 
 .edit-translations .pair-action-btn {
@@ -91,6 +93,7 @@
   .edit-translations table tbody .new-word-input {
     font-size: 14px;
     padding: 6px;
+    width: 100px;
   }
 
   .edit-translations .pair-action-btn {
