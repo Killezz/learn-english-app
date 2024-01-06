@@ -2,7 +2,7 @@
 
 ![Learn English App](https://i.gyazo.com/534f9e61553dcbb24bef399773675de9.png)
 
-Full-stack Learn English App that has frontend built with React and backend with Node.js. On "Learn English" page you will type correct answers for either finnish or english translation and after checking answers it shows you total score and also correct answers for rows that were wrong. On dashboard you can add new translation pairs to database and also edit and delete them.
+Full-stack Learn English App that has frontend built with React and backend with Node.js. On "Learn English" page you will type correct answers for either finnish or english translation and after checking answers it shows you total score and also correct answers for rows that were wrong. On dashboard you can add new translation pairs to database and also edit and delete them. Frontend also scored 100/100 on Google Lighthouse accessibility test.
 
 ### Built With
 
