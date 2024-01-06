@@ -17,7 +17,7 @@ To get a local copy up and running follow these simple steps.
 
 1. Set up database
    ```sql
-   CREATE TABLE locations (
+   CREATE TABLE translations (
        id INT AUTO_INCREMENT PRIMARY KEY,
        english VARCHAR(255),
        finnish VARCHAR(255)
