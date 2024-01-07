@@ -25,7 +25,7 @@ To get a local copy up and running follow these simple steps.
    ```
 2. Clone the repo
    ```sh
-   git clone https://github.com/Killezz/react-tasks-app.git
+   git clone https://github.com/Killezz/learn-english-app.git
    ```
 3. Install NPM packages
    ```sh
